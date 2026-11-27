@@ -121,7 +121,9 @@ tailwind.config = {
       <h2 class="font-display font-black text-3xl sm:text-4xl text-teal leading-snug">عندك دار في الداوديات؟ حطها فابور في سكنى</h2>
       <p class="mt-4 text-slate-600 leading-8 max-w-md">النشر مجاني. عمر الفورم و غادي نتواصلو معاك فواتساب باش نزيدو دارك فالموقع.</p>
     </div>
-    <form id="ownerForm" class="bg-white border-2 border-teal-soft rounded-2xl p-5 sm:p-7 space-y-4 shadow-sm" novalidate>
+    <form id="ownerForm" action="https://formspree.io/f/xvzwgbag" method="POST" class="bg-white border-2 border-teal-soft rounded-2xl p-5 sm:p-7 space-y-4 shadow-sm" novalidate>
+      <input type="hidden" name="_subject" value="دار جديدة في سكنى">
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
       <div>
         <label for="name" class="block font-bold mb-1.5">الاسم</label>
         <input id="name" name="name" type="text" required autocomplete="name" class="field">
@@ -142,9 +144,51 @@ tailwind.config = {
           <input id="price" name="price" type="number" min="0" inputmode="numeric" required class="field">
         </div>
       </div>
+      <label class="flex items-start gap-2 text-sm text-slate-600 leading-6">
+        <input type="checkbox" name="consent" value="yes" class="mt-1.5 w-4 h-4 accent-[#0F4C5C]">
+        <span>قرِيت و موافق على <a href="#privacy" class="text-teal underline font-bold">سياسة الخصوصية</a></span>
+      </label>
       <p id="formMsg" class="text-sm min-h-[1.25rem]" role="status"></p>
-      <button type="submit" class="w-full bg-brand hover:bg-orange-400 text-[#3a1d00] font-display font-black text-lg py-3 rounded-xl transition">أضف دارك مجانا</button>
+      <button id="sendBtn" type="submit" class="w-full bg-brand hover:bg-orange-400 text-[#3a1d00] font-display font-black text-lg py-3 rounded-xl transition">أضف دارك مجانا</button>
     </form>
+  </div>
+</section>
+
+<!-- Privacy policy -->
+<section id="privacy" class="bg-teal-soft">
+  <div class="max-w-3xl mx-auto px-4 py-14">
+    <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-teal">سياسة الخصوصية</h2>
+    <p class="mt-2 text-sm text-slate-500">آخر تحديث: 27 نونبر 2026</p>
+    <div class="mt-6 space-y-6 leading-8 text-slate-700">
+      <div>
+        <h3 class="font-display font-extrabold text-lg text-teal">شنو كنجمعو</h3>
+        <p>فقط المعلومات اللي كتعمر فـ"فورم" أصحاب الدور: الاسم، رقم واتساب، نوع الدار و الثمن. ما كنطلبو حتى معلومة أخرى.</p>
+      </div>
+      <div>
+        <h3 class="font-display font-extrabold text-lg text-teal">علاش كنستعملوها</h3>
+        <p>باش نتواصلو معاك فواتساب و نزيدو دارك فـ"سكنى". ما كنبيعو و ما كنشاركو معلوماتك مع أي جهة للإشهار.</p>
+      </div>
+      <div>
+        <h3 class="font-display font-extrabold text-lg text-teal">فين كتمشي المعلومات</h3>
+        <p>الطلبات كتتصيفط عبر خدمة Formspree اللي كتوصلنا بيها فالبريد. هاد الخدمة كتعالج المعلومات لحسابنا و عندها سياسة الخصوصية ديالها. و فاش كتضغط على زر واتساب، المحادثة كتدوز عبر واتساب و كتخضع لسياسة واتساب.</p>
+      </div>
+      <div>
+        <h3 class="font-display font-extrabold text-lg text-teal">الإعلانات اللي كتنشر</h3>
+        <p>الاسم، الثمن و نوع الدار ممكن يبانو فالموقع بعد موافقتك. رقم واتساب كيتستعمل باش المهتمين يتواصلو معاك.</p>
+      </div>
+      <div>
+        <h3 class="font-display font-extrabold text-lg text-teal">المدة ديال الاحتفاظ</h3>
+        <p>كنحتافظو بمعلوماتك لمدة نشر الإعلان و كنمسحوها فاش تطلب منا ذلك.</p>
+      </div>
+      <div>
+        <h3 class="font-display font-extrabold text-lg text-teal">خدمات خارجية</h3>
+        <p>الموقع كيستعمل Google Fonts و Tailwind و Unsplash باش يعرض الخطوط و التصاميم و الصور. هاد الخدمات ممكن تتوصل بعنوان IP ديالك فاش كتحل الصفحة. ما كنستعملوش ملفات تتبع ولا إعلانات.</p>
+      </div>
+      <div>
+        <h3 class="font-display font-extrabold text-lg text-teal">حقوقك</h3>
+        <p>طبقا للقانون المغربي 09-08 المتعلق بحماية الأشخاص الذاتيين تجاه معالجة المعطيات ذات الطابع الشخصي، عندك الحق فالاطلاع على معلوماتك و تصحيحها و حذفها و الاعتراض على استعمالها. كتب لينا فواتساب على الرقم <a href="https://wa.me/212633337750" target="_blank" rel="noopener" class="text-teal underline font-bold" dir="ltr">0633337750</a> و غادي نجاوبوك.</p>
+      </div>
+    </div>
   </div>
 </section>
 </main>
@@ -154,13 +198,14 @@ tailwind.config = {
   <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-center">
     <p class="font-display font-black text-xl">Soukna - <span class="text-brand">سكنى</span></p>
     <a href="https://instagram.com/soukna.ma" target="_blank" rel="noopener" class="hover:text-brand transition" dir="ltr">Instagram @soukna.ma</a>
+    <a href="#privacy" class="hover:text-brand transition">سياسة الخصوصية</a>
     <p class="text-white/80">Marrakech</p>
   </div>
 </footer>
 
 <script>
 (function () {
-  var WA = 'https://wa.me/212600000000';
+  var WA = 'https://wa.me/212633337750';
   var img = function (id) { return 'https://images.unsplash.com/' + id + '?auto=format&fit=crop&w=800&q=70'; };
 
   var listings = [
@@ -236,26 +281,32 @@ tailwind.config = {
     render();
   });
 
-  // Owner form: opens WhatsApp with the details prefilled
+  // Owner form: sends to Formspree
   var form = document.getElementById('ownerForm');
   var msg = document.getElementById('formMsg');
+  var sendBtn = document.getElementById('sendBtn');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var name = form.name.value.trim();
-    var phone = form.phone.value.replace(/[\s.-]/g, '');
-    var type = form.type.value;
-    var price = form.price.value.trim();
+    var name = form.elements['name'].value.trim();
+    var phone = form.elements['phone'].value.replace(/[\s.-]/g, '');
+    var price = form.elements['price'].value.trim();
     var phoneOk = /^(\+212|00212|0)[5-7]\d{8}$/.test(phone);
-    if (!name || !price || !phoneOk) {
-      msg.style.color = '#b42318';
-      msg.textContent = !phoneOk && phone ? 'رقم واتساب غير صحيح، مثال: 0612345678' : 'عمر كل الخانات من فضلك.';
-      return;
-    }
-    var text = 'سلام، بغيت نزيد دار في سكنى.\nالاسم: ' + name + '\nواتساب: ' + phone + '\nالنوع: ' + type + '\nالثمن: ' + price + ' DH/شهر';
-    msg.style.color = '#0F4C5C';
-    msg.textContent = 'شكرا ' + name + '! غادي تتحل لك محادثة واتساب باش نكملو.';
-    window.open(WA + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
-    form.reset();
+    msg.style.color = '#b42318';
+    if (!name || !price || !phone) { msg.textContent = 'عمر كل الخانات من فضلك.'; return; }
+    if (!phoneOk) { msg.textContent = 'رقم واتساب غير صحيح، مثال: 0612345678'; return; }
+    if (!form.elements['consent'].checked) { msg.textContent = 'خاصك توافق على سياسة الخصوصية.'; return; }
+    sendBtn.disabled = true; sendBtn.textContent = 'كنصيفطو...';
+    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+      .then(function (r) {
+        if (!r.ok) throw new Error('bad');
+        msg.style.color = '#0F4C5C';
+        msg.textContent = 'شكرا ' + name + '! توصلنا بطلبك و غادي نتواصلو معاك فواتساب.';
+        form.reset();
+      })
+      .catch(function () {
+        msg.innerHTML = 'وقع مشكل فالإرسال. عاود المحاولة ولا تواصل معنا مباشرة فـ <a class="underline font-bold" href="' + WA + '" target="_blank" rel="noopener">واتساب</a>.';
+      })
+      .finally(function () { sendBtn.disabled = false; sendBtn.textContent = 'أضف دارك مجانا'; });
   });
 
   render();
